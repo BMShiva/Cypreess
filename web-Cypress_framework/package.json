@@ -1,0 +1,26 @@
+{
+	"name": "pagarbookautomation",
+	"version": "1.0.0",
+	"description": "Pagarbook web automation ",
+	"main": "index.js",
+	"scripts": {
+		"clean:reports": "rm -R -f cypress/reports && mkdir cypress/reports && mkdir cypress/reports/mochareports",
+		"pretest": "npm run clean:reports",
+		"scripts": "cypress run",
+		"combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
+		"generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
+		"final-reports": "npm run combine-reports && npm run generate-report",
+		"test": "./node_modules/.bin/cypress run --spec cypress/integration/tests/*.js --browser chrome --env url=https://web.bookmypagar.com && npm run final-reports"
+	},
+	"author": "Shiva prasad",
+	"license": "ISC",
+	"devDependencies": {
+		"cypress": "^7.1.0",
+		"cypress-multi-reporters": "^1.5.0",
+		"cypress-xpath": "^1.6.2",
+		"mocha": "^8.4.0",
+		"mochawesome": "^6.2.2",
+		"mochawesome-merge": "^4.2.0",
+		"mochawesome-report-generator": "^5.2.0"
+	}
+}

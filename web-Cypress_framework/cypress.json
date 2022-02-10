@@ -1,0 +1,22 @@
+{
+	"env": {
+		"url": "https://web.bookmypagar.com"
+	},
+	"screenshotsFolder": "cypress/reports/mochareports/assets",
+	"videosFolder": "cypress/reports/mochareports/assets/videos",
+	"reporter": "cypress-multi-reporters",
+	"reporterOptions": {
+		"reporterEnabled": "mochawesome",
+		"mochawesomeReporterOptions": {
+			"reportDir": "cypress/reports/mocha",
+			"quite": true,
+			"overwrite": false,
+			"html": false,
+			"json": true
+		}
+	},
+	"video": false,
+	"screenshotOnRunFailure": true,
+	"viewportWidth": 1000,
+	"viewportHeight": 660
+}
